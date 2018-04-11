@@ -39,7 +39,7 @@ for(i in 2:(nend+1)){
   }
 }
 
-
+##### PROBLEM SOLUTION STARTS HERE
 drainage <- function(alpha,L,dx,lambda,H0,Hf,totalt){
   
   dt <- lambda*(dx^2)/alpha
