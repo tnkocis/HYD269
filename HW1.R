@@ -52,6 +52,7 @@ for(i in 1:n){
     break
   }
 }
+iter1 <- iterations
 results <- data.frame(location=c("h 2,2", "h 2,3","h 3,2", "h 3,3"), 
                       h=c(h22,h23,h32,h33))
 results
@@ -128,6 +129,7 @@ for(i in 1:n){
     break
   }
 }
+iter2 <- iterations
 results2 <- data.frame(location=c("h 2,2", "h 2,3","h 3,2", "h 3,3"), 
                       h=c(h22,h23,h32,h33))
 results2
