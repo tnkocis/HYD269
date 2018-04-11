@@ -1,7 +1,16 @@
 #2.1
 A <- matrix(c(-4,1,1,0,1,-4,0,1,1,0,-4,1,0,1,1,-4), nrow=4, ncol=4)
-b <- matrix(c(-15.86,-14.75,-16.77,-16.32), nrow=4, ncol=1)
+b <- matrix(c(-15.86,-14.79,-16.77,-16.32), nrow=4, ncol=1)
 x<-solve(A,b)
+C <- data.frame(location=c("h 2,2", "h 2,3","h 3,2", "h 3,3"),
+h=x)
+
+ C
+  location        h
+1    h 2,2 7.935833
+2    h 2,3 7.694167
+3    h 3,2 8.189167
+4    h 3,3 8.050833
 
 #2.2a
 #known
@@ -56,6 +65,16 @@ results <- data.frame(location=c("h 2,2", "h 2,3","h 3,2", "h 3,3"),
                       h=c(h22,h23,h32,h33))
 results
 
+ results
+  location        h
+1    h 2,2 7.932227
+2    h 2,3 7.682363
+3    h 3,2 8.187363
+4    h 3,3 8.047432
+
+ m
+[1] 5
+
 #2.2b
 x
 
@@ -69,6 +88,14 @@ for(i in 1:length(analytical$location)){
 }
 analytical
 
+analytical
+  location   x   y        h
+1    h 2,2 200 200 7.926628
+2    h 2,3 200 100 7.677526
+3    h 3,2 300 200 8.183947
+4    h 3,3 300 100 8.044894
+
+
 #2.2d
 error <- data.frame(location=c("h 2,2", "h 2,3","h 3,2", "h 3,3"),
                     analytical=analytical$h,
@@ -78,6 +105,18 @@ error <- data.frame(location=c("h 2,2", "h 2,3","h 3,2", "h 3,3"),
                     diff_iterative=results$h-analytical$h,
                     error_simultaneous=abs(c(x)-analytical$h)/analytical$h,
                     error_iterative=abs(results$h-analytical$h)/analytical$h)
+error
+
+  location analytical simultaneous iterative diff_simultaneous diff_iterative
+1    h 2,2   7.926628     7.935833  7.932227       0.009205526    0.005598755
+2    h 2,3   7.677526     7.694167  7.682363       0.016640783    0.004837398
+3    h 3,2   8.183947     8.189167  8.187363       0.005219717    0.003416332
+4    h 3,3   8.044894     8.050833  8.047432       0.005939444    0.002537751
+  error_simultaneous error_iterative
+1       0.0011613421    0.0007063225
+2       0.0021674669    0.0006300725
+3       0.0006377995    0.0004174430
+4       0.0007382874    0.0003154487
 
 #2.2e
 #known
@@ -131,3 +170,12 @@ for(i in 1:n){
 results2 <- data.frame(location=c("h 2,2", "h 2,3","h 3,2", "h 3,3"), 
                       h=c(h22,h23,h32,h33))
 results2
+
+results2
+  location        h
+1    h 2,2 7.932864
+2    h 2,3 7.682682
+3    h 3,2 8.187682
+4    h 3,3 8.047591
+ m
+[1] 7
